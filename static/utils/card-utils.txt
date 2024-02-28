@@ -1,0 +1,29 @@
+Card 1:
+Title: "Efficient Kidney Imaging with XGBoost"
+
+Subtitle: "Rapid Classification for Swift Diagnosis"
+
+Description: 
+Harness the speed and accuracy of XGBoost for quick and precise classification of kidney CT images. Streamline your workflow and expedite diagnosis with our advanced imaging solution.
+
+CTA: "Discover XGBoost Efficiency Today!"
+
+Card 2:
+Title: "VGGNet: Precision Segmentation Tool"
+
+Subtitle: "Accurate Analysis for Informed Decisions"
+
+Description: 
+Unlock the power of VGGNet for precise segmentation of kidney structures in CT images. Enhance diagnostic accuracy and streamline analysis with our cutting-edge segmentation tool.
+
+CTA: "Experience VGGNet Precision Now!"
+
+Card 3:
+Title: "Seamless Integration for Medical Imaging"
+
+Subtitle: "User-Friendly Interface for Enhanced Workflow"
+
+Description: 
+Experience seamless integration and intuitive interface designed for efficient navigation and analysis of medical images. Elevate your diagnostic capabilities with our streamlined imaging solution.
+
+CTA: "Optimize Your Workflow Today!"

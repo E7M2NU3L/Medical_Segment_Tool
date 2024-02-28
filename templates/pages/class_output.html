@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classifued Output</title><link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./index.html">Med Segment</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="./classify.html">Classify</a>
+              <a class="nav-link" href="./segment.html">Segment</a>
+              <a class="nav-link" href="./project.html">Project</a>
+              <a class="nav-link disabled" aria-disabled="true">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <main style="background-color: #ffefef;">
+        <div class="row" style="height: 90vh;">
+          <div class="col" style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
+            <div class="card" style="width: 300px; padding: 30px 10px; background-color: rgba(0,0,0,0.5); color: #fff;">
+              <img src="../images/hero-logo.jpeg" alt="" class="rounded-4 img-fluid">
+              <div class="mb-3">
+                <h4 class="pt-4">
+                  Input Image
+                </h4 >
+                <p>
+                  Classified as: Ct Image with a Tumour
+                </p>
+                <a href="./segment.html" class="btn btn-danger">Segment</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    
+</body>
+</html>
