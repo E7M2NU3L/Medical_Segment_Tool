@@ -1,0 +1,54 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static './node_modules/bootstrap/dist/css/bootstrap.css'%}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Med Segment</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/classify">Classify</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/segment">Segment</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/convert">Converter API</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/project" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Project
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/project">UNET</a></li>
+                  <li><a class="dropdown-item" href="/project">XGBoost</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/project">Django</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Learn More</a>
+              </li>
+            </ul>
+
+            {% if user.is_authenticated %}
+            <form class="d-flex" role="search">
+              <a class="btn btn-outline-success font-monospace" type="submit" href="/logout">Logout</a>
+            </form>
+            {% else %}
+            <form class="d-flex" role="search">
+              <a class="btn btn-outline-success font-monospace" type="submit" href="/login">Login</a>
+            </form>
+            {% endif %}
+          </div>
+        </div>
+      </nav>
+
+    <script src="{% static './node_modules/bootstrap/dist/js/bootstrap.bundle.js'%}"></script>
+</body>

@@ -1,74 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+  {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="{% static '/node_modules/bootstrap/dist/css/bootstrap.css' %}">
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="./index.html">Med Segment</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Classify</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Segment</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="./project.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Project
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="./project.html">UNET</a></li>
-                  <li><a class="dropdown-item" href="./project.html">XGBoost</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="./project.html">Django</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Learn More</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <a class="btn btn-outline-success font-monospace" type="submit" href="./login.html">Login</a>
-            </form>
-          </div>
-        </div>
-      </nav>
-
-      <div class="container" style="display: flex; height: 90vh; align-items: center; justify-content: center; background-color: #ffefef;">
+    {% include 'navbar.html' %}
+      <div class="container" style="display: flex; height: 110vh; align-items: center; justify-content: center; background-color: #ffefef;">
         <main class="card " style="width: 400px; padding: 30px 15px; background: rgba(0,0,0,0.6); color: #fefedf;" >
             <h2>
                 Signup
             </h2>
             <div class="mb-3">
                 <form action="">
-                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                  </div>
-                  <div class="row g-3 align-items-center">
-                    <div class="col-auto">
-                      <label for="inputPassword6" class="col-form-label">Password</label>
-                    </div>
-                    <div class="col-auto">
-                      <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                    </div>
-                    <div class="col-auto">
-                      <span id="passwordHelpInline" class="form-text text-white">
-                        Must be 8-20 characters long.
-                      </span>
-                    </div>
-                  </div>
+
+                  {{ form.as_p }}
         
-                  <a href="./index.html" type="submit" id="liveToastBtn" class="btn btn-success">
+                  <a href="/" type="submit" id="liveToastBtn" class="btn btn-success">
                     Signup
                   </a>
 
@@ -88,12 +39,12 @@
                 </form>
               <ul class="list-group bg-secondary mt-4">
                 <li class="list-group-item bg-secondary-subtle">Forgot password</li>
-                <li class="list-group-item bg-secondary-subtle"><a href="./login.html" class="nav-link">Already have an account? login</a></li>
+                <li class="list-group-item bg-secondary-subtle"><a href="/login" class="nav-link">Already have an account? login</a></li>
               </ul>
           </main>
       </div>
 
-      <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+      <script src="{% static '/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}"></script>
     
     
 </body>
