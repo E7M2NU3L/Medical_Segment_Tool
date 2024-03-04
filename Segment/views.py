@@ -1,4 +1,7 @@
 from django.shortcuts import render
+import numpy as np
+import png
+import pydicom
 
 # Create your views here.
 # 1. Home page
@@ -34,4 +37,21 @@ def Segmented_output(request):
     return render(request,'seg_output.html')
 
 def convert_dcm_to_jpg(request):
-    return render(request, 'file_converter.html')
+    ds = pydicom.dcmread("./MyImage.dcm")
+    shape = ds.pixel_array.shape
+    # Convert to float to avoid overflow or underflow losses.
+    image_2d = ds.pixel_array.astype(float)
+    # Rescaling grey scale between 0-255
+    image_2d_scaled = (np.maximum(image_2d,0) / image_2d.max()) * 256
+    # Convert to uint
+    image_2d_scaled = np.uint8(image_2d_scaled)
+    # Write the PNG file
+    with open("out.png", 'wb') as png_file:
+        w = png.Writer(shape[1], shape[0], greyscale=True)
+        w.write(png_file, image_2d_scaled)
+
+    # config
+    config = {
+        "image": png_file
+    }
+    return render(request, 'file_converter.html', config)

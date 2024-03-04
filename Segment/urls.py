@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import home, classify, Classified_output, segment, Segmented_output, login, project, register
 from django.http import HttpResponse
+from .views import convert_dcm_to_jpg
 
 urlpatterns = [
     path('', home),
@@ -11,5 +12,6 @@ urlpatterns = [
     path('login', login),
     path('project', project),
     path('register', register),
+    path('/convert', convert_dcm_to_jpg, name="Convert")
 ]
 
