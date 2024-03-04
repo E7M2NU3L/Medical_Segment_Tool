@@ -32,3 +32,6 @@ def Classified_output(request):
 # 8. Segmented Output Page
 def Segmented_output(request):
     return render(request,'seg_output.html')
+
+def convert_dcm_to_jpg(request):
+    return render(request, 'file_converter.html')
