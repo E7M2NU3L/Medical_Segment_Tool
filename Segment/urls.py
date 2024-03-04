@@ -2,8 +2,7 @@ from django.urls import path
 from .views import home, classify, Classified_output, segment, Segmented_output, login, project, register
 from django.http import HttpResponse
 
-'''
-url_patterns = [
+urlpatterns = [
     path('', home),
     path('classify', classify),
     path('classify/classified_output', Classified_output),
@@ -14,8 +13,3 @@ url_patterns = [
     path('register', register),
 ]
 
-'''
-
-url_patterns = [
-    path('', HttpResponse("Hello Guys"))
-]
