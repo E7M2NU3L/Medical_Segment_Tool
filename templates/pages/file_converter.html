@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Converter</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+<body>
+    <h1>
+        Import Your .dcm File Here
+    </h1>
+    <form>
+        {% csrf_token %}
+        <input type="file" id="file-imports" />
+        <label for="file-imports" class=""></label>
+        <button type="submit">
+            
+        </button>
+    </form>
+</body>
+</html>

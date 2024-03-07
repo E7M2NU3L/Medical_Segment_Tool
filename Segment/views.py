@@ -3,6 +3,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import signUpForm
 from .forms import DicomConvert
+from django.shortcuts import render
+import numpy as np 
+from PIL import Image
+import pydicom
 
 # Create your views here.
 # 1. Home page
@@ -81,22 +85,49 @@ def logout_user(request):
     messages.success(request, "You have been Logged out...")
     return redirect('home')
 
+# convert Code
 def convert(request):
+    form1 = DicomConvert()
+    img = None  # Initialize img to None
+
     if request.method == 'POST':
-        form = DicomConvert(
+        form1 = DicomConvert(
             request.POST,
             request.FILES
         )
-        if form.is_valid():
-            form.save()
+        if form1.is_valid():
+            # dicom file from the request
+            dicom_file = form1.cleaned_data.get('file')
+            request_file = request.FILES
+            # read the dicom file
+            dicom_image = pydicom.dcmread(dicom_file | request_file)  # This line may need adjustment
+            # get the shape of the image
+            dicom_shape = dicom_image.pixel_array.shape
+            # convert to float
+            dicom_image.pixel_array = dicom_image.pixel_array.astype(float)
+            # rescale grey scale between 0-255
+            dicom_image.pixel_array = (np.maximum(dicom_image.pixel_array,0) / dicom_image.pixel_array.max()) * 256
+            # convert to uint
+            dicom_image.pixel_array = np.uint8(dicom_image.pixel_array)
+            # write the png file
+            img = Image.fromarray(dicom_image.pixel_array)
+            # save the image
+            img.save("./images/converted/img.png")
+            # save the form
+            form1.save()
+            messages.success(request, "You have successfully converted the Dicom file to a png file...")
             return redirect('home')
         
         else:
-            form = DicomConvert()
             config = {
-                'form': form
+                'form': form1, 
+                'image': img,
+                'dicom_file' : dicom_file
             }
             return render(request, 'convert.html', config)
+        
     return render(request, 'convert.html', {
-        'form': form
+        'form': form1,
+        'image': img,
+        'dicom_file' : None  # Provide a default value for dicom_file
     })

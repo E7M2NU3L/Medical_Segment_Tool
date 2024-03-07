@@ -32,17 +32,17 @@
                 <form action="{% url 'login' %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                         {{form.as_p}}
-                      <a type="submit" class="btn btn-success" onsubmit="" href="classified/classified_output">Submit</a>
+                      <a type="submit" class="btn btn-success" href="convert">Submit</a>
                 </form>
 
-                {% if dicom_files %}
+                {% if file %}
                 <h2>
                     Dicom Files
                 </h2>
                 <ul>
                     {% for dicom_file in dicom_files %}
                     <li>
-                        {{dicom_file.file.name}}
+                        {{file.file.name}}
                         <a href="{% url 'comvert' dicom_file.pk %}" class="text-primary text-decoration-none ">
                             Download {{dicom_file.file.name}}
                         </a>

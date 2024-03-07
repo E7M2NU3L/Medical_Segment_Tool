@@ -23,7 +23,6 @@ class FileConvert(models.Model):
     
 class Classify(models.Model):
     fileName = models.CharField(max_length=100)
-    fileType = models.CharField(max_length=100)
     img = models.ImageField(upload_to="./images/classify/")
 
     def __str__(self):

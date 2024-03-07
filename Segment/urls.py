@@ -1,6 +1,5 @@
 from django.urls import path
 from .views import home, classify,logout_user, Classified_output, segment, Segmented_output, login_user, project, register, convert
-from django.http import HttpResponse
 
 urlpatterns = [
     path('', home, name="home"),
