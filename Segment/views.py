@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import signUpForm
 from .forms import DicomConvert
+from .forms import ClassifierForm
 from django.shortcuts import render
 import numpy as np 
 from PIL import Image
@@ -61,7 +62,51 @@ def register(request):
 
 # 4. Classify Page
 def classify(request):
-    return render(request, 'classify.html')
+    form = ClassifierForm()
+
+    if request.method == 'POST':
+        # gettig the data from the form
+        form = ClassifierForm(
+            request.POST,
+            request.FILES
+        )    
+        
+        # getting the file
+        image = form.cleaned_data.get('file_classify')
+        file_alternate = request.FILES
+
+        # convert the image to an numpy array
+        if image is not None:
+            img = np.array(Image.open(image))
+        else:
+            img = np.array(Image.open(file_alternate['file_alternate']))
+        
+        # pre processing
+        trained_image = img.astype(np.float32) / 255.0
+
+        # shape of the image
+        img_shape = trained_image.shape
+
+        # saving the form
+        form.save()
+        
+        # configuration to be passed on
+        config = {
+            'form': form,
+            'img': img,
+            'img_shape': img_shape
+        }
+
+        # return the configuration
+        return render(request, 'classify.html', config)
+    
+    # config for the main section
+    config = {
+        'form': form,
+        'img': None,
+        'img_shape': None
+    }
+    return render(request, 'classify.html', config)
 
 # 5. Segment Page
 def segment(request):
@@ -131,3 +176,6 @@ def convert(request):
         'image': img,
         'dicom_file' : None  # Provide a default value for dicom_file
     })
+
+def converted_image(request):
+    return render(request, 'converted_image.html')

@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import home, classify,logout_user, Classified_output, segment, Segmented_output, login_user, project, register, convert
+from .views import converted_image
 
 urlpatterns = [
     path('', home, name="home"),
@@ -11,5 +12,6 @@ urlpatterns = [
     path('project', project, name="project"),
     path('register', register, name="register"),
     path('logout', logout_user, name="logout"),
-    path('convert', convert, name = "convert")
+    path('convert', convert, name = "convert"),
+    path('convert/output', converted_image, name="convert_download")
 ]

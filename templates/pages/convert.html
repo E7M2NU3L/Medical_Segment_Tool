@@ -29,27 +29,11 @@
                 Convert Dicom to Jpeg Files
             </h2>
             <div class="mb-3">
-                <form action="{% url 'login' %}" method="POST" enctype="multipart/form-data">
+                <form action="{url 'convert'}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                         {{form.as_p}}
-                      <a type="submit" class="btn btn-success" href="convert">Submit</a>
+                      <a type="submit" class="btn btn-success" href="convert/output">Submit</a>
                 </form>
-
-                {% if file %}
-                <h2>
-                    Dicom Files
-                </h2>
-                <ul>
-                    {% for dicom_file in dicom_files %}
-                    <li>
-                        {{file.file.name}}
-                        <a href="{% url 'comvert' dicom_file.pk %}" class="text-primary text-decoration-none ">
-                            Download {{dicom_file.file.name}}
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
           </main>
       </div>
 

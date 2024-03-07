@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Converted Output</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    {% if img %}
+                <h2>
+                  Conversion of <span class="text-primary">.dcm</span> to <span class="text-success">.jpeg</span> was successfull    
+                </h2>
+                <ul>
+                    {% for dicom_file in dicom_files %}
+                    <li>
+                        {{img}}
+                        <a href="../../MedSegment/images/converted/image.png" class="text-primary text-decoration-none ">
+                            Download {{dicom_file.file_classify.name}}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+    
+    {% else %}
+    <h1>
+        Kindly Go <span class="text-primary">Back</span> and Upload an image for <span class="text-success">Classification</span>
+    </h1>
+    {% endif %}
+</body>
+</html>
