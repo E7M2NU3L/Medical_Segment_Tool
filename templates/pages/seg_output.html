@@ -11,109 +11,38 @@
     
   {% include 'navbar.html' %}
 
-      <div class="main">
-        <div class="container">
-
+      <div class="main d-flex justify-content-center align-items-center bg-secondary-subtle" style="width: 100%; min-height: 100vh;">
+        <div class="container py-4 px-4 mx-4" style="background-color: rgba(0,0,0,0.5);">
+          
+          <h1 class="text-white font-monospace">
+            Segmented Output
+          </h1>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum dignissimos in, culpa harum aliquid provident ut hic autem corporis. Esse repudiandae quo nobis saepe distinctio beatae repellendus, animi facilis maiores?
+          </p>
           <div class="row">
-            <div class="col">
-              <img src="" alt="input">
+            <div class="col text-white">
+              <h2>Input Feeded Image</h2>
+              <img src={{image}} alt="input" class="img-thumbnail shadow-lg">
+              <button class="btn btn-warning">
+                <a class="text-decoration-none text-black fw-bold link-offset-2-hover" href={{mask}}>Download</a>
+              </button>
             </div>
-            <div class="col">
-              <img src="" alt="output">
+            <div class="col text-white">
+              <h2>
+                Segmented Mask
+              </h2>
+              <img src={{mask}} alt="output" class="img-thumbnail shadow-lg">
+              <button class="btn btn-info">
+                <a class="text-decoration-none text-black fw-bold link-offset-2-hover" href={{mask}}>Download</a>
+              </button>
             </div>
           </div>
           
-          <div class="row">
-            <div class="col">
-              <img src="" alt="input">
-            </div>
-            <div class="col">
-              <img src="" alt="output">
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="col">
-              <img src="" alt="input">
-            </div>
-            <div class="col">
-              <img src="" alt="output">
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="col">
-              <img src="" alt="input">
-            </div>
-            <div class="col">
-              <img src="" alt="output">
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="col">
-              <img src="" alt="input">
-            </div>
-            <div class="col">
-              <img src="" alt="output">
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="col">
-              <img src="" alt="input">
-            </div>
-            <div class="col">
-              <img src="" alt="output">
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="col">
-              <img src="" alt="input">
-            </div>
-            <div class="col">
-              <img src="" alt="output">
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="col">
-              <img src="" alt="input">
-            </div>
-            <div class="col">
-              <img src="" alt="output">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col">
-              <img src="" alt="input">
-            </div>
-            <div class="col">
-              <img src="" alt="output">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col">
-              <img src="" alt="input">
-            </div>
-            <div class="col">
-              <img src="" alt="output">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col">
-              <img src="" alt="input">
-            </div>
-            <div class="col">
-              <img src="" alt="output">
-            </div>
-          </div>
         </div>
       </div>
+
+      {% include 'footer.html' %}
 
       <script src="{% static '/node_modules/bootstrap/dist/js/bootstrap.bundle.js'%}"></script>
 </body>

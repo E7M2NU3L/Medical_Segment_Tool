@@ -14,9 +14,8 @@ class Record(models.Model):
     
 
 class Segment(models.Model):
-    fileName = models.CharField(max_length=100)
-    fileType = models.CharField(max_length=100)
-    img = models.ImageField(upload_to="./images/segment/")
+    FileName = models.CharField(max_length=100)
+    File = models.ImageField(upload_to="./images/segment/")
 
     def __str__(self): 
         return self.fileName
