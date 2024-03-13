@@ -65,7 +65,7 @@ Segment_model = []
 def segment(request):
 
     # initializing the elements of the output
-    form = None
+    form = SegmentForm()
     image = None
     mask = None
     # chceking if the request is through POST
@@ -125,8 +125,8 @@ def segment(request):
     # config file for outer api
     configuration = {
         'form': form,
-        'image': None,
-        'mask': None,
+        'image': image,
+        'mask': mask,
     }
 
     # return the context

@@ -4,27 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classify</title>
+    <title>Segment</title>
     <link rel="stylesheet" href="{% static '/node_modules/bootstrap/dist/css/bootstrap.css' %}">
 </head>
 <body>
   {% include 'navbar.html' %}
 
-      <main class="container-fluid" style="min-height: 100vh; background-color: #ffefef; display: flex; justify-content: center; align-items: center; ">
-        <div class="card" style="width: 300px; padding: 30px 10px; background-color: rgba(0,0,0,0.5); color: #fff;">
+      <main class="container-fluid" style="min-height: 100vh; max-height: 100%; padding-top: 2rem; padding-bottom: 2rem; background-color: #ffefef; display: flex; justify-content: center; align-items: center; ">
+        <div class="card" style="max-width: 500px; min-width: 300px; padding: 30px 20px; background-color: rgba(0,0,0,0.5); color: #fff;">
                 <h2>
                     Segment
                 </h2>
                 <form>
                   <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label font-monospace">Name this File</label>
-                    <input type="text" name="FileName" class="form-control" id="exampleFormControlInput1" placeholder="mri-11-02-2009.dcm">
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">
-                        Click Here To Upload
-                    </label>
-                    <input class="form-control" id="exampleFormControlTextarea1" type="File" />
+                  {{form.as_p}}
                 </div>
                 <a type="submit" class="btn btn-success" onsubmit="" href="segment/segmented_output">Submit</a>
                 </form>

@@ -1,10 +1,7 @@
-from typing import Any, Mapping
+from typing import Any
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from django.core.files.base import File
-from django.db.models.base import Model
-from django.forms.utils import ErrorList
 from .models import Segment 
 
 class signUpForm(UserCreationForm):
@@ -86,9 +83,9 @@ class SegmentForm(forms.ModelForm):
 
     # defining the html for the fields
     class Meta:
-        Model = Segment
+        model = Segment
         fields = ['FileName', 'File']
-
+    
     # defining the init function
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super(SegmentForm, self).__init__(*args, **kwargs)
